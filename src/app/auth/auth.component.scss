@@ -1,0 +1,119 @@
+.wrapper-login {
+  width: 100%;
+  height: 100vh;
+}
+.alert.alert-danger {
+    width: 100%;
+}
+.plane-ico {
+  width: 60px;
+}
+.welcome-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+.welcome-message {
+  font-size: 13px;
+  font-weight: 300;
+}
+.form {
+  background: #ffffff;
+  -webkit-box-shadow: -1px 2px 6px 0px rgba(199,197,199,1);
+  -moz-box-shadow: -1px 2px 6px 0px rgba(199,197,199,1);
+  box-shadow: -1px 2px 6px 0px rgba(199,197,199,1);
+  padding: 30px;
+  .title {
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px 0 40px 0;
+  }
+  label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6D6D6D;
+  }
+  .btn.btn-primary {
+    background: #000000;
+    color: #ffffff;
+    display: block;
+    margin: 0 auto;
+    border-radius: 0;
+    border: 0;
+    outline: none;
+  }
+  .btn.btn-primary:disabled {
+    background: #BEBEBE;
+    color: #000000;
+  }
+  .form-control {
+    border-radius: 0;
+    border: 2px solid #eeeeee;
+  }
+  .form-control:focus {
+    border: 2px solid #B6B6B6;
+    box-shadow: none;
+    background: transparent;
+  }
+  .form-control::placeholder  {
+    color: #c7c5c7;
+    font-weight: 300;
+    font-size: 14px;
+  }
+}
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.signup-mode, .signin-mode {
+  color: #6D6D6D;
+  font-size: 13px;
+  margin-top:10px;
+}
+.signup-mode {
+  text-align: right;
+}
+.btn.btn-primary-link {
+  color: #4AC6F7;
+  font-size: 13px;
+  font-weight: 300;
+  background: none;
+  outline: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  line-height: .5em;
+}
+.btn.btn-primary-link:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.saving span {
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  font-size: 40px;
+  color: #1C6EC5;
+}
+.saving span:nth-child(2) {
+  animation-delay: .2s;
+}
+.saving span:nth-child(3) {
+  animation-delay: .4s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: .2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
+}

@@ -1,0 +1,83 @@
+<div class="section">
+    <div ng-if="!hideAllForm" class="wrapper-login d-flex justify-content-center align-items-center flex-column">
+        <ng-template appPlaceholder></ng-template>
+        <div class="form-wrap col-md-6 col-xl-4">
+          <app-spinner *ngIf="isLoading"></app-spinner>
+          <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <div *ngIf="!hideFormContent" class="form-content">
+                <div class="title">{{ !isLoginMode ? 'Sign-Up' : 'Sign-In' }}</div>
+                <div *ngIf="!isLoginMode" class="form-group">
+                  <label for="email">Full name</label>
+                  <input
+                    name="name"
+                    type="text"
+                    id="name"
+                    class="form-control"
+                    placeholder="John Doe"
+                    ngModel
+                    formControlName="name"
+                    [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                    required
+                  />
+                  <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">First Name is required</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="email"> Email</label>
+                    <input
+                        name="email"
+                        type="email"
+                        id="email"
+                        class="form-control"
+                        placeholder="user@email.com"
+                        formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                        required
+                        email
+                    />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required">Email is required</div>
+                      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password"> Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        placeholder="&middot;&middot;&middot;&middot;&middot;&middot;&middot;"
+                        name="password"
+                        formControlName="password"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                        required
+                        minlength="6"
+                    />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                      <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                </div>
+                <div>
+                  <button class="btn btn-primary mr-16" type="submit">{{ isLoginMode ? 'Login' : 'Sign Up' }}</button>
+                </div>
+              </div>
+              <div class="welcome" *ngIf="hideFormContent">
+                <img class="plane-ico" src="https://cdn2.iconfinder.com/data/icons/logistics-delivery-19/64/logistics_delivery-18-512.png" alt="plane">
+                <div class="welcome-name">Welcome {{ userNamePerson }}!</div>
+                <p class="welcome-message">Get ready for take off! Logging in...</p>
+                <p class="saving"><span>&bull;</span><span>&bull;</span><span>&bull;</span></p>
+              </div>
+          </form>
+          <div class="signin-mode" *ngIf="!isLoginMode && !hideFormContent">
+            Already registered?&nbsp;
+            <button class="btn btn-primary-link" type="button" routerLink="/auth/signin" (click)="onSwitchModeSignin()">Sign In</button>
+          </div>
+          <div class="signup-mode" *ngIf="isLoginMode && !hideFormContent">
+            Not registered?
+            <button class="btn btn-primary-link" type="button" routerLink="/auth/signup" (click)="onSwitchModeSignup()">Sign Up</button>
+          </div>
+        </div>
+    </div>
+</div>
+

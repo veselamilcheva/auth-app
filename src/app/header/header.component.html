@@ -1,0 +1,16 @@
+<div>
+  <nav class="navbar navbar-expand-md navbar-light sticky-top">
+    <button class="nav-btn navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true"
+            (click)="isCollapsed = !isCollapsed" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [ngClass]="{'previewMenuShow': isCollapsed === true}" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a  *ngIf="isAuthenticated" class="nav-item nav-link" routerLinkActive="active" routerLink="/product">Product</a>
+        <a *ngIf="isAuthenticated" class="nav-item nav-link" routerLinkActive="active" role="button" style="cursor:pointer;" (click)="onLogout()">Logout</a>
+        <a  *ngIf="!isAuthenticated" class="nav-item nav-link" routerLinkActive="active" routerLink="/auth">Authenticate</a>
+      </div>
+    </div>
+  </nav>
+</div>
