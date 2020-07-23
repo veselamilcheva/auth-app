@@ -1,0 +1,128 @@
+.watch-page {
+  display: flex;
+  padding-left: 40px;
+
+  .left-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+
+    .phones-wrap .img-front-menu {
+      margin-right: 30px;
+      opacity: 0.3;
+    }
+
+    .phones-wrap .img-back-menu {
+      opacity: 0.3;
+    }
+
+    .phones-wrap .img-front-menu.active, .phones-wrap .img-back-menu.active {
+      opacity: 1;
+    }
+  }
+
+  .title-wrap {
+    padding: 50px;
+    position: relative;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f0f0f0+0,ffffff+100 */
+    background: #f0f0f0; /* Old browsers */
+    background: -moz-linear-gradient(left, #f0f0f0 0%, #ffffff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #f0f0f0 0%, #ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #f0f0f0 0%, #ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#ffffff', GradientType=1); /* IE6-9 */
+    .logo-apple {
+      width: 20%;
+      opacity: 0.1;
+      position: absolute;
+      top: 20%;
+      left: 75%;
+    }
+
+    .iphone-title {
+      color: #FF3B30;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 35px 10px;
+    }
+
+    .iphone-title-main {
+      font-size: 70px;
+      color: #000000;
+      font-weight: 700;
+      line-height: 1em;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 20px;
+      color: #999999;
+      font-weight: 300;
+    }
+  }
+
+  .content {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+
+    .price-wrap {
+      color: #CCCCCC;
+      font-weight: 700;
+      font-size: 34px;
+      line-height: 1em;
+      margin: 40px;
+    }
+
+    .buy-now {
+      color: #FF3B30;
+      font-size: 16px;
+    }
+  }
+
+  .watch-preview {
+    display: flex;
+    justify-content: center;
+
+    .watch-img-wrap-holder {
+      position: relative;
+      height: 440px;
+      width: 400px;
+    }
+
+    .watch-img-wrap {
+      position: absolute;
+    }
+
+    .watch-img-wrap img {
+      width: 400px;
+      margin-top: 50px;
+    }
+
+    .watch-preview-container {
+      position: relative;
+    }
+
+    .watch-radio-group {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      input {
+        color: #000000;
+      }
+    }
+
+    .colors-watch {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: 40px;
+      font-size: 12px;
+    }
+  }
+}

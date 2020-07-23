@@ -1,0 +1,40 @@
+<div class="watch-page animate__animated animate__fadeIn">
+  <div class="left-wrap col-md-6">
+    <div class="title-wrap">
+      <img class="logo-apple" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Apple_logo_grey.svg" alt="Apple Icon">
+      <div class="iphone-title">Apple Watch</div>
+      <div class="iphone-title-main">Change starts<br /> within.</div>
+      <p>Apple Watch Series 4. Fundamentally redesigned and re‑engineered to help you be even more active, healthy, and connected.</p>
+    </div>
+    <div class="content col-md-12">
+      <div class="price-wrap">
+        From $699 <br />
+        <span class="buy-now">Buy Now &#62;</span>
+      </div>
+    </div>
+  </div>
+  <div class="watch-preview col-md-5">
+    <div class="watch-preview-container">
+      <div class="watch-img-wrap-holder">
+        <div class="watch-img-wrap watch-image-1 animate__animated"
+             [ngClass]="{'animate__fadeOut': !selectBlack, 'animate__fadeIn': selectBlack}">
+          <img class="img-front" src="../../assets/Black Watch-1.png" alt="">
+        </div>
+        <div class="watch-img-wrap watch-image-2 animate__animated animate__fadeIn"
+             [ngClass]="{'animate__fadeOut': selectBlack, 'animate__fadeIn': !selectBlack}">
+          <img class="img-back" src="../../assets/White Watch-2.png" alt="">
+        </div>
+      </div>
+      <div class="watch-radio-group">
+        <div class="colors-watch">
+          <input type="radio" value="black" name="watch" (change)="changeColor($event)" [checked]="selectBlack">
+          <label for="black">Black</label>
+        </div>
+        <div class="colors-watch">
+          <input type="radio" value="white" name="watch" (change)="changeColor($event)">
+          <label for="white">White</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

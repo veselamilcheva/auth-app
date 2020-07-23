@@ -1,0 +1,33 @@
+<div [@slideInOut] class="iphone-page">
+  <div class="left-wrap col-md-6">
+    <div class="title-wrap">
+      <img class="logo-apple" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Apple_logo_grey.svg" alt="Apple Icon">
+      <div class="iphone-title">iPhone</div>
+      <div class="iphone-title-main">The ultimate<br/> iPhone</div>
+      <p>The future is here. Join the iPhone Upgrade<br /> Program to get the latest iPhone - NOW!</p>
+    </div>
+    <div class="content col-md-12">
+      <div class="price-wrap">
+        From $699 <br />
+        <span class="buy-now">Buy Now &#62;</span>
+      </div>
+      <div class="phones-wrap">
+        <img [ngClass]="{'active': valSlider <= 50}" class="img-front-menu" src="../../assets/apple-iphonexs-max-gold.png"  (click)="showIphoneFront()" alt="">
+        <img [ngClass]="{'active': valSlider > 50}" class="img-back-menu" src="../../assets/apple-iphonexs-max-gold-back-3.png" (click)="showIphoneBack()" alt=""><br />
+        <div class="slidecontainer">
+          <input class="slider" #sliderInput type="range" min="1" value="{{valSlider}}" max="100" name="valSlider" (input)="updateValSlider(sliderInput.value)">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="phone-preview col-md-5">
+    <div class="phone-preview-container">
+      <div class="iphone-img-wrap iphone-image-1" [ngStyle]="{'left':frontLeftOffset + 'px', 'opacity': frontOpacity}">
+        <img class="img-front"  src="../../assets/apple-iphonexs-max-gold@2x.png" alt="">
+      </div>
+      <div class="iphone-img-wrap iphone-image-2" [ngStyle]="{'left':backLeftOffset + 'px', 'opacity': backOpacity}">
+        <img class="img-back" src="../../assets/apple-iphonexs-max-gold-back-3@2x.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>

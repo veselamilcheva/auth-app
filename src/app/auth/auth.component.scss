@@ -1,6 +1,12 @@
 .wrapper-login {
   width: 100%;
   height: 100vh;
+  background: #92dafa; /* Old browsers */
+  background: -moz-linear-gradient(top,  #92dafa 0%, #ffffff 70%, #ffffff 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #92dafa 0%,#ffffff 70%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #92dafa 0%,#ffffff 70%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#92dafa', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+  background-repeat: no-repeat;
 }
 .alert.alert-danger {
     width: 100%;
@@ -11,6 +17,7 @@
 .welcome-name {
   font-size: 18px;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 .welcome-message {
   font-size: 13px;
@@ -31,7 +38,7 @@
   label {
     font-size: 14px;
     font-weight: 400;
-    color: #6D6D6D;
+    color: #707070;
   }
   .btn.btn-primary {
     background: #000000;
@@ -60,6 +67,9 @@
     font-weight: 300;
     font-size: 14px;
   }
+  .form-control.is-invalid {
+    border: 2px solid #ff8591;
+  }
 }
 .welcome {
   display: flex;
@@ -68,7 +78,7 @@
   flex-direction: column;
 }
 .signup-mode, .signin-mode {
-  color: #6D6D6D;
+  color: #707070;
   font-size: 13px;
   margin-top:10px;
 }

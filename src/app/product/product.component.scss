@@ -1,5 +1,49 @@
 .product-page {
-  padding: 20px;
+  width: 100%;
+  height: 100vh;
   font-size: 20px;
   text-align: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  color: #000000;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f2f2f2+0,ffffff+51,eaeaea+100 */
+  background: #f2f2f2; /* Old browsers */
+  background: -moz-linear-gradient(top,  #f2f2f2 0%, #ffffff 51%, #eaeaea 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #f2f2f2 0%,#ffffff 51%,#eaeaea 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #f2f2f2 0%,#ffffff 51%,#eaeaea 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#eaeaea',GradientType=0 ); /* IE6-9 */
+  .welcome-apple {
+    margin-bottom: 150px;
+  }
+  .logo-apple {
+    width: 10%;
+    opacity: 0.3;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+  }
+  .welcome {
+    font-size: 3em;
+    font-weight: 600;
+    margin-bottom: 120px;
+  }
+  .welcome-p {
+    color: #5AC8FA;
+  }
+  .icons {
+    text-align: center;
+    cursor: pointer;
+    .mr-20 {
+      margin-right: 20px;
+    }
+    .icon {
+      opacity: 0.5;
+    }
+  }
+
 }

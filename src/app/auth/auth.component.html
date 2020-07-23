@@ -1,9 +1,9 @@
 <div class="section">
-    <div ng-if="!hideAllForm" class="wrapper-login d-flex justify-content-center align-items-center flex-column">
+    <div ng-if="!hideAllForm" class="col-md-12 wrapper-login d-flex justify-content-center align-items-center flex-column">
         <ng-template appPlaceholder></ng-template>
         <div class="form-wrap col-md-6 col-xl-4">
           <app-spinner *ngIf="isLoading"></app-spinner>
-          <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <form class="form" autocomplete="off" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
               <div *ngIf="!hideFormContent" class="form-content">
                 <div class="title">{{ !isLoginMode ? 'Sign-Up' : 'Sign-In' }}</div>
                 <div *ngIf="!isLoginMode" class="form-group">
@@ -46,7 +46,7 @@
                         type="password"
                         id="password"
                         class="form-control"
-                        placeholder="&middot;&middot;&middot;&middot;&middot;&middot;&middot;"
+                        placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
                         name="password"
                         formControlName="password"
                         [ngClass]="{ 'is-invalid': submitted && f.password.errors }"

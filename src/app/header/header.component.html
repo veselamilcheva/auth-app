@@ -6,8 +6,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" [ngClass]="{'previewMenuShow': isCollapsed === true}" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a  *ngIf="isAuthenticated" class="nav-item nav-link" routerLinkActive="active" routerLink="/product">Product</a>
+      <div class="navbar-nav ml-auto">
+        <a  *ngIf="isAuthenticated" class="nav-item nav-link" routerLinkActive="active" routerLink="/product/iphone">iPhone</a>
+        <a  *ngIf="isAuthenticated" class="nav-item nav-link" routerLinkActive="active" routerLink="/product/watch">Watch</a>
         <a *ngIf="isAuthenticated" class="nav-item nav-link" routerLinkActive="active" role="button" style="cursor:pointer;" (click)="onLogout()">Logout</a>
         <a  *ngIf="!isAuthenticated" class="nav-item nav-link" routerLinkActive="active" routerLink="/auth">Authenticate</a>
       </div>
