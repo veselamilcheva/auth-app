@@ -126,3 +126,9 @@
     }
   }
 }
+@media only screen and (max-width: 840px) {
+  .watch-page {
+    flex-direction: column;
+    justify-content: center;
+  }
+}

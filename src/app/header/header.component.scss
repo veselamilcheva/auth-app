@@ -34,4 +34,16 @@
         background: #9dcbec;
     }
   }
+  .navbar-nav .nav-item.nav-link {
+    background: #000000;
+    color: #ffffff;
+    transition: all 0.5s ease;
+  }
+  .navbar-nav .nav-item.nav-link:hover {
+    background: #1C6EC5;
+  }
+  .navbar {
+    padding: 0;
+  }
+
 }
