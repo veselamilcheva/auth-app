@@ -1,10 +1,10 @@
-import { Component, OnInit, ComponentFactoryResolver, ViewChild, OnDestroy } from '@angular/core';
-import { AuthService, AuthResponseData } from './auth.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable, Subscription } from 'rxjs';
-import { Router } from '@angular/router';
-import { AlertComponent } from '../shared/alert/alert.component';
-import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
+import {Component, OnInit, ComponentFactoryResolver, ViewChild, OnDestroy} from '@angular/core';
+import {AuthService, AuthResponseData} from './auth.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Observable, Subscription} from 'rxjs';
+import {Router} from '@angular/router';
+import {AlertComponent} from '../shared/alert/alert.component';
+import {PlaceholderDirective} from '../shared/placeholder/placeholder.directive';
 
 @Component({
   selector: 'app-auth',
@@ -46,19 +46,22 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   // convenience getter for easy access to form fields
-  get f() { return this.registerForm.controls; }
+  get f() {
+    return this.registerForm.controls;
+  }
 
 
   onSwitchModeSignin() {
     this.isLoginMode = true;
   }
+
   onSwitchModeSignup() {
     this.isLoginMode = false;
   }
 
   onSubmit() {
     this.submitted = true;
-    console.log('this.registerForm.valid', this.registerForm.valid)
+    console.log('this.registerForm.valid', this.registerForm.valid);
     if (!this.registerForm.valid) {
       return;
     }
@@ -69,7 +72,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     const name = this.registerForm.value.name;
     const email = this.registerForm.value.email;
     const password = this.registerForm.value.password;
-    let authObs: Observable<AuthResponseData>
+    let authObs: Observable<AuthResponseData>;
 
     if (this.isLoginMode) {
       authObs = this.authService.logIn(email, password);
@@ -81,7 +84,7 @@ export class AuthComponent implements OnInit, OnDestroy {
       setTimeout(() => {
         this.isLoading = false;
         this.hideFormContent = true;
-      }, 4000)
+      }, 4000);
       setTimeout(() => {
         this.authService.handleAuthentification(
           response.name,
@@ -91,12 +94,12 @@ export class AuthComponent implements OnInit, OnDestroy {
           +response.expiresIn);
         this.hideAllForm = true;
         this.router.navigate(['/product']);
-      }, 5500)
+      }, 5500);
     }, errorMessage => {
       this.isLoading = false;
       this.error = errorMessage;
       this.showErrorAlert(errorMessage);
-    })
+    });
 
     this.registerForm.reset();
   }
@@ -108,14 +111,14 @@ export class AuthComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy() {
-    if(this.closeSub) {
+    if (this.closeSub) {
       this.closeSub.unsubscribe();
     }
   }
 
   private showErrorAlert(message: string) {
-    //create component dynamically
-    const alertCmpFactory =  this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
+    // create component dynamically
+    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
     const hostViewContainerRef = this.alertHost.viewContainerRef;
     hostViewContainerRef.clear();
 

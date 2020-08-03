@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-import { throwError, BehaviorSubject } from 'rxjs';
-import { User } from './user.model';
-import { tap } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
-import { Router } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
+import {throwError, BehaviorSubject} from 'rxjs';
+import {User} from './user.model';
+import {tap} from 'rxjs/operators';
+import {environment} from '../../environments/environment';
+import {Router} from '@angular/router';
 
 export interface AuthResponseData {
-  name: string,
+  name: string;
   idToken: string;
   email: string;
   refreshToken: string;
@@ -17,26 +17,27 @@ export interface AuthResponseData {
   registered?: boolean;
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class AuthService {
   user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+  }
 
   signUp(name: string, email: string, password: string) {
     return this.http.post<AuthResponseData>(
       'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + environment.googleapisApiKey,
       {
-        name: name,
-        email: email,
-        password: password,
+        name,
+        email,
+        password,
         returnSecureToken: true
       }
     ).pipe(
       catchError(this.handleError),
       tap(resData => resData)
-    )
+    );
   }
 
   autoLogin() {
@@ -71,9 +72,9 @@ export class AuthService {
     return this.http.post<AuthResponseData>(
       'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + environment.googleapisApiKey,
       {
-        name: name,
-        email: email,
-        password: password,
+        name,
+        email,
+        password,
         returnSecureToken: true
       }
     ).pipe(catchError(this.handleError),
@@ -84,7 +85,7 @@ export class AuthService {
   logout() {
     this.user.next(null);
     this.router.navigate(['/auth']);
-    localStorage.removeItem('userData'); //clear local storage on logout
+    localStorage.removeItem('userData'); // clear local storage on logout
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
     }
@@ -125,11 +126,14 @@ export class AuthService {
     }
     switch (errorResponse.error.error.message) {
       case 'EMAIL_EXISTS':
-        errorMessage = 'This email exists already!'
+        errorMessage = 'This email exists already!';
+        break;
       case 'EMAIL_NOT_FOUND':
-        errorMessage = 'There is no user record corresponding to this identifier. The user may have been deleted.'
+        errorMessage = 'There is no user record corresponding to this identifier. The user may have been deleted.';
+        break;
       case 'INVALID_PASSWORD':
-        errorMessage = 'The password is invalid or the user does not have a password.'
+        errorMessage = 'The password is invalid or the user does not have a password.';
+        break;
     }
 
     return throwError(errorMessage);
